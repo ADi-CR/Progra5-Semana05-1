@@ -160,5 +160,48 @@ namespace Progra5_Semana05_1.DbContext
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPUsuarioAgregar", nombreParameter, emailParameter, telefonoParameter, contrasenniaParameter, idRolParameter);
         }
+    
+        public virtual ObjectResult<SPUsuarioConsultarPorID_Result> SPUsuarioConsultarPorID(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPUsuarioConsultarPorID_Result>("SPUsuarioConsultarPorID", idUsuarioParameter);
+        }
+    
+        public virtual int SPUsuarioEliminar(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPUsuarioEliminar", idUsuarioParameter);
+        }
+    
+        public virtual int SPUsuarioModificar(Nullable<int> idUsuario, string nombre, string email, string telefono, string contrasennia)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            var contrasenniaParameter = contrasennia != null ?
+                new ObjectParameter("contrasennia", contrasennia) :
+                new ObjectParameter("contrasennia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPUsuarioModificar", idUsuarioParameter, nombreParameter, emailParameter, telefonoParameter, contrasenniaParameter);
+        }
     }
 }

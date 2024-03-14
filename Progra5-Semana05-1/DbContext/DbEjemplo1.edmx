@@ -43,6 +43,19 @@
           <Parameter Name="contrasennia" Type="varchar" Mode="In" />
           <Parameter Name="idRol" Type="int" Mode="In" />
         </Function>
+        <Function Name="SPUsuarioConsultarPorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SPUsuarioEliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SPUsuarioModificar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+          <Parameter Name="contrasennia" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="SPUsuariosListar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Progra5_Ejemplo1ModelStoreContainer" />
       </Schema></edmx:StorageModels>
@@ -88,6 +101,19 @@
             <Parameter Name="contrasennia" Mode="In" Type="String" />
             <Parameter Name="idRol" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="SPUsuarioConsultarPorID" ReturnType="Collection(Progra5_Ejemplo1Model.SPUsuarioConsultarPorID_Result)">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SPUsuarioEliminar">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SPUsuarioModificar">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+            <Parameter Name="contrasennia" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -106,6 +132,13 @@
           <Property Type="String" Name="Email" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="Telefono" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="DescripcionRol" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SPUsuarioConsultarPorID_Result">
+          <Property Type="Int32" Name="UsuarioID" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Contrasennia" Nullable="false" MaxLength="500" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -149,6 +182,19 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SPUsuarioAgregar" FunctionName="Progra5_Ejemplo1Model.Store.SPUsuarioAgregar" />
+          <FunctionImportMapping FunctionImportName="SPUsuarioConsultarPorID" FunctionName="Progra5_Ejemplo1Model.Store.SPUsuarioConsultarPorID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Progra5_Ejemplo1Model.SPUsuarioConsultarPorID_Result">
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Contrasennia" ColumnName="Contrasennia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SPUsuarioEliminar" FunctionName="Progra5_Ejemplo1Model.Store.SPUsuarioEliminar" />
+          <FunctionImportMapping FunctionImportName="SPUsuarioModificar" FunctionName="Progra5_Ejemplo1Model.Store.SPUsuarioModificar" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

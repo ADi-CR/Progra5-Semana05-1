@@ -8,9 +8,25 @@
 
     <div class="primary-container">
 
-        <asp:GridView ID="GvListaUsuarios" runat="server" AutoGenerateColumns="true" CssClass="table table-striped">
+        <asp:GridView ID="GvListaUsuarios" runat="server" AutoGenerateColumns="false" CssClass="table table-striped">
+            <Columns>
+
+                <asp:BoundField DataField="UsuarioID" HeaderText="Código Usuario" />
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre Usuario" />
+                <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
+                <asp:BoundField DataField="DescripcionRol" HeaderText="Rol de Usuario" />
+                <asp:BoundField DataField="Email" HeaderText="Correo Electrónico" />
+
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <a href="UsuarioModificarPage.aspx?id=<%# Eval("UsuarioID") %>">Modificar</a>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+            </Columns>
         </asp:GridView>
 
-    </div><
+    </div>
+    <
 
 </asp:Content>

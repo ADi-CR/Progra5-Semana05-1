@@ -144,8 +144,11 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\Error.aspx" />
     <Content Include="Pages\ExitoAgregarUsuario.aspx" />
+    <Content Include="Pages\ExitoEliminarUsuario.aspx" />
+    <Content Include="Pages\ExitoModificarUsuario.aspx" />
     <Content Include="Pages\Semana05Page.aspx" />
     <Content Include="Pages\UsuarioAgregarPage.aspx" />
+    <Content Include="Pages\UsuarioModificarPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -246,6 +249,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbEjemplo1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DbContext\SPUsuarioConsultarPorID_Result.cs">
+      <DependentUpon>DbEjemplo1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContext\SPUsuariosListar_Result.cs">
       <DependentUpon>DbEjemplo1.tt</DependentUpon>
     </Compile>
@@ -279,6 +285,20 @@
     <Compile Include="Pages\ExitoAgregarUsuario.aspx.designer.cs">
       <DependentUpon>ExitoAgregarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ExitoEliminarUsuario.aspx.cs">
+      <DependentUpon>ExitoEliminarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExitoEliminarUsuario.aspx.designer.cs">
+      <DependentUpon>ExitoEliminarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExitoModificarUsuario.aspx.cs">
+      <DependentUpon>ExitoModificarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExitoModificarUsuario.aspx.designer.cs">
+      <DependentUpon>ExitoModificarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Semana05Page.aspx.cs">
       <DependentUpon>Semana05Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -292,6 +312,13 @@
     </Compile>
     <Compile Include="Pages\UsuarioAgregarPage.aspx.designer.cs">
       <DependentUpon>UsuarioAgregarPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UsuarioModificarPage.aspx.cs">
+      <DependentUpon>UsuarioModificarPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\UsuarioModificarPage.aspx.designer.cs">
+      <DependentUpon>UsuarioModificarPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
