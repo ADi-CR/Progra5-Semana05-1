@@ -252,6 +252,12 @@
     <Compile Include="DbContext\SPUsuarioConsultarPorID_Result.cs">
       <DependentUpon>DbEjemplo1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DbContext\SPUsuarioConsultarPorID_Result1.cs">
+      <DependentUpon>DbEjemplo1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbContext\SPUsuarioRolListar_Result.cs">
+      <DependentUpon>DbEjemplo1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContext\SPUsuariosListar_Result.cs">
       <DependentUpon>DbEjemplo1.tt</DependentUpon>
     </Compile>

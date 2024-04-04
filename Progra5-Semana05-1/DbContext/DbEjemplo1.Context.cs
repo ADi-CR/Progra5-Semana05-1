@@ -161,15 +161,6 @@ namespace Progra5_Semana05_1.DbContext
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPUsuarioAgregar", nombreParameter, emailParameter, telefonoParameter, contrasenniaParameter, idRolParameter);
         }
     
-        public virtual ObjectResult<SPUsuarioConsultarPorID_Result> SPUsuarioConsultarPorID(Nullable<int> idUsuario)
-        {
-            var idUsuarioParameter = idUsuario.HasValue ?
-                new ObjectParameter("idUsuario", idUsuario) :
-                new ObjectParameter("idUsuario", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPUsuarioConsultarPorID_Result>("SPUsuarioConsultarPorID", idUsuarioParameter);
-        }
-    
         public virtual int SPUsuarioEliminar(Nullable<int> idUsuario)
         {
             var idUsuarioParameter = idUsuario.HasValue ?
@@ -179,7 +170,21 @@ namespace Progra5_Semana05_1.DbContext
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPUsuarioEliminar", idUsuarioParameter);
         }
     
-        public virtual int SPUsuarioModificar(Nullable<int> idUsuario, string nombre, string email, string telefono, string contrasennia)
+        public virtual ObjectResult<SPUsuarioRolListar_Result> SPUsuarioRolListar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPUsuarioRolListar_Result>("SPUsuarioRolListar");
+        }
+    
+        public virtual ObjectResult<SPUsuarioConsultarPorID_Result1> SPUsuarioConsultarPorID(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SPUsuarioConsultarPorID_Result1>("SPUsuarioConsultarPorID", idUsuarioParameter);
+        }
+    
+        public virtual int SPUsuarioModificar(Nullable<int> idUsuario, string nombre, string email, string telefono, string contrasennia, Nullable<int> idrol)
         {
             var idUsuarioParameter = idUsuario.HasValue ?
                 new ObjectParameter("idUsuario", idUsuario) :
@@ -201,7 +206,11 @@ namespace Progra5_Semana05_1.DbContext
                 new ObjectParameter("contrasennia", contrasennia) :
                 new ObjectParameter("contrasennia", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPUsuarioModificar", idUsuarioParameter, nombreParameter, emailParameter, telefonoParameter, contrasenniaParameter);
+            var idrolParameter = idrol.HasValue ?
+                new ObjectParameter("idrol", idrol) :
+                new ObjectParameter("idrol", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SPUsuarioModificar", idUsuarioParameter, nombreParameter, emailParameter, telefonoParameter, contrasenniaParameter, idrolParameter);
         }
     }
 }

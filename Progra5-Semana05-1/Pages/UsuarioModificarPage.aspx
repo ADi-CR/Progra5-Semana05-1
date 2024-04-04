@@ -25,6 +25,12 @@
             <span>Contraseña (Opcional)</span>
             <asp:TextBox ID="TxtContrasennia" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
+
+        <div>
+            <span>Rol De Usuario</span>
+            <asp:DropDownList ID="DdlRolesUsuario" runat="server" Enabled="true"></asp:DropDownList>
+        </div>
+
         <div>
             <asp:Button ID="BtnModificar" runat="server" Text="MODIFICAR USUARIO" CssClass="btn btn-primary" OnClick="BtnModificar_Click" />
             <asp:Button ID="BtnEliminar" runat="server" Text="ELIMINAR USUARIO" CssClass="btn btn-primary" OnClick="BtnEliminar_Click" />

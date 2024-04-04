@@ -28,7 +28,7 @@
 
         <div>
             <span>Rol De Usuario</span>
-            <asp:DropDownList ID="DropDownList1" runat="server" Enabled="false" ></asp:DropDownList>
+            <asp:DropDownList ID="DdlRolesUsuario" runat="server" Enabled="true" ></asp:DropDownList>
         </div>
 
         <div>
